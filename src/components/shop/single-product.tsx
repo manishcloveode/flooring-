@@ -297,7 +297,7 @@ export default function SingleProduct({ product }: SingleProductProps) {
                     </div>
 
                     {/* Tab Content */}
-                    <div className="min-h-[300px]">
+                    <div className="h-auto">
                         {renderTabContent()}
                     </div>
                 </div>
