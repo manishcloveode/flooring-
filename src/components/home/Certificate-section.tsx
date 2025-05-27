@@ -109,9 +109,9 @@ const CertificateMarquee = () => {
                     width: max-content;
                 }
                 
-                .animate-seamless-marquee:hover {
-                    animation-play-state: paused;
-                }
+                // .animate-seamless-marquee:hover {
+                //     animation-play-state: paused;
+                // }
 
                 /* Ensure PNG transparency is preserved */
                 .animate-seamless-marquee img {
