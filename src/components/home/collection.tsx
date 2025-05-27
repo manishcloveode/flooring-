@@ -51,22 +51,23 @@ export default function FloorCategories() {
                                 {/* Circle Border with Image inside */}
                                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36">
                                     <div className="
-        absolute inset-0 rounded-full 
-        border-2 border-black 
-        group-hover:border-green-700 
-        group-hover:border-dotted 
-        group-hover:animate-spin 
-        transition-all duration-300 
-        bg-white">
+    absolute inset-0 rounded-full 
+    border-8 border-black 
+    group-hover:border-green-700 
+    group-hover:border-dotted 
+    group-hover:animate-spin 
+    transition-all duration-300 
+    bg-white">
                                     </div>
-                                    <div className="relative z-10 w-full h-full rounded-full flex items-center justify-center overflow-hidden">
+                                    <div className="relative z-10 w-full h-full rounded-full overflow-hidden">
                                         <img
                                             src={category.image}
                                             alt={category.alt}
-                                            className="w-3/5 h-3/5 object-contain"
+                                            className="w-full h-full object-cover"
                                         />
                                     </div>
                                 </div>
+
 
                                 {/* Text below the circle */}
                                 <span className="text-gray-800 font-medium text-xs sm:text-sm lg:text-base text-center px-1 sm:px-2 leading-tight">

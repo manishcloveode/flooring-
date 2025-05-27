@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 const slides = [
     {
@@ -50,9 +51,9 @@ export default function HeroBanner() {
                             <p className="text-xl font-semibold">{slide.subtitle}</p>
                             <h1 className="text-5xl font-bold my-4">{slide.title}</h1>
                             <p className="mb-6 text-xl">{slide.description}</p>
-                            <button className="bg-orange-500 text-white py-3 px-6 rounded hover:bg-orange-600 transition">
+                            <Link href={'/shop'} className="bg-orange-500 text-white py-3 px-6 rounded hover:bg-orange-600 transition">
                                 Shop Now
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

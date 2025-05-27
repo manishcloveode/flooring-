@@ -24,8 +24,8 @@ const mockData = {
         },
         {
             id: 3,
-            name: "This is the Large Title for the Product",
-            description: "A sleek and compact piece of furniture, ideal for modern apartments or small spaces.",
+            name: "This is the Large Title ",
+            description: "A sleek and compact piece of furniture, ideal for modern apartments",
             price: 19.0,
             originalPrice: 21.0,
             discount: 10,
