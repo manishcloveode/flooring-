@@ -6,8 +6,8 @@ import {
     Twitter,
     Instagram,
 } from "lucide-react";
-
-
+import mockData from "@/data/mockData";
+import Link from "next/link";
 type Product = {
     id: number;
     name: string;
@@ -28,6 +28,10 @@ export default function SingleProduct({ product }: SingleProductProps) {
     const [activeTab, setActiveTab] = useState("description");
     const [selectedImage, setSelectedImage] = useState(0);
 
+    // Related products - same category ke products, current product ko exclude kar ke
+    const relatedProducts = mockData.products
+        .filter(p => p.category === product.category && p.id !== product.id)
+        .slice(0, 4); // sirf 4 products show karenge
 
     const thumbnails = [
         product.image,
@@ -35,7 +39,6 @@ export default function SingleProduct({ product }: SingleProductProps) {
         product.image,
         product.image
     ];
-
 
     const renderTabContent = () => {
         switch (activeTab) {
@@ -190,10 +193,7 @@ export default function SingleProduct({ product }: SingleProductProps) {
                             <h1 className="text-3xl font-bold text-gray-900 mb-4">
                                 {product.name}
                             </h1>
-
-
                         </div>
-
 
                         <div className="space-y-4">
                             <h3 className="text-lg font-semibold text-gray-900 mb-3">Product Specifications</h3>
@@ -261,7 +261,6 @@ export default function SingleProduct({ product }: SingleProductProps) {
                             </div>
                         </div>
 
-
                         {/* Social Share */}
                         <div className="flex items-center space-x-4 pt-4 border-t">
                             <span className="text-gray-600">Share:</span>
@@ -273,6 +272,7 @@ export default function SingleProduct({ product }: SingleProductProps) {
                         </div>
                     </div>
                 </div>
+
                 <div className="border-t pt-8">
                     {/* Tab Navigation */}
                     <div className="flex space-x-8 border-b">
@@ -294,15 +294,6 @@ export default function SingleProduct({ product }: SingleProductProps) {
                         >
                             Additional Info
                         </button>
-                        {/* <button
-                            onClick={() => setActiveTab("reviews")}
-                            className={`pb-4 px-2 font-medium transition-colors ${activeTab === "reviews"
-                                ? "text-orange-500 border-b-2 border-orange-500"
-                                : "text-gray-600 hover:text-gray-900"
-                                }`}
-                        >
-                            Reviews
-                        </button> */}
                     </div>
 
                     {/* Tab Content */}
@@ -310,6 +301,33 @@ export default function SingleProduct({ product }: SingleProductProps) {
                         {renderTabContent()}
                     </div>
                 </div>
+
+
+                {relatedProducts.length > 0 && (
+                    <div className="border-t pt-12 mt-12">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8">Related Products</h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            {relatedProducts.map((product) => (
+                                <div
+                                    key={product.id}
+                                    className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-all border border-gray-200 cursor-pointer"
+                                >
+                                    <Link href={`/shop/${product.id}`}>
+                                        <img
+                                            src={product.image}
+                                            alt={product.name}
+                                            className="w-full h-64 object-cover rounded"
+                                        />
+                                        <h3 className="mt-4 font-semibold text-2xl text-gray-900 line-clamp-2">{product.name}</h3>
+                                        <p className="text-base text-gray-600 line-clamp-2">{product.description}</p>
+                                        {/* Optional Price or Discount can go here */}
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
             </div>
         </div>
     );
