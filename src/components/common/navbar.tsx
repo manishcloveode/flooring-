@@ -143,7 +143,7 @@ const Navbar = () => {
                         <ul className="flex items-center justify-center space-x-8 py-4">
                             {[
                                 { label: "Home", href: "/" },
-                                { label: "About Us", dropdown: Aboutus, key: "about" },
+                                { label: "About Us", href: "/about-us", dropdown: Aboutus, key: "about" },
                                 { label: "Products", dropdown: Products, key: "products" },
                                 { label: "Digital Print", dropdown: DigitalPrint, key: "digital-print" },
                                 { label: "Free PDF Download", dropdown: Download, key: "download" },
@@ -157,7 +157,12 @@ const Navbar = () => {
                                 >
                                     <div className="flex items-center cursor-pointer text-black hover:text-orange-400 transition-colors duration-200 px-3 py-2">
                                         {item.href ? (
-                                            <Link href={item.href} className="transition-colors duration-200">{item.label}</Link>
+                                            <Link href={item.href} className="transition-colors duration-200 flex items-center">
+                                                <span>{item.label}</span>
+                                                {item.dropdown && (
+                                                    <ChevronDown className={`ml-1 h-4 w-4 dropdown-arrow ${activeDropdown === item.key ? 'rotated' : ''}`} />
+                                                )}
+                                            </Link>
                                         ) : (
                                             <>
                                                 <span className="transition-colors duration-200">{item.label}</span>
@@ -165,6 +170,7 @@ const Navbar = () => {
                                             </>
                                         )}
                                     </div>
+
                                     {item.dropdown && activeDropdown === item.key && (
                                         <div className="dropdown-menu active absolute top-full left-0 mt-0 w-64 bg-white shadow-lg rounded-md border z-50">
                                             <div className="p-4 grid gap-2">
@@ -177,6 +183,7 @@ const Navbar = () => {
                                 </li>
                             ))}
                         </ul>
+
                     </div>
                 </nav>
 
