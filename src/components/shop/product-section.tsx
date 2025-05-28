@@ -40,7 +40,6 @@ export default function ProductsSection({
     // Filter logic
     const filteredProducts = products.filter(product => {
         const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
-        // Since we don't have color/brand in product data, we'll just use category for now
         return categoryMatch;
     });
 
@@ -74,18 +73,18 @@ export default function ProductsSection({
 
     return (
         <div className="py-16 bg-white">
-            <div className="container mx-auto px-8">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Products</h2>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Products</h2>
+                    <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.
                     </p>
                 </div>
 
-                <div className="flex gap-8">
-                    {/* Left Sidebar - Filters */}
-                    <div className="w-64 flex-shrink-0  sticky top-[-250px] self-start">
+                <div className="flex flex-col lg:flex-row gap-8">
+                    {/* Sidebar Filters */}
+                    <div className="w-full lg:w-64 flex-shrink-0 lg:sticky lg:top-0 self-start">
                         <div className="bg-gray-50 p-6 rounded-lg">
                             <h3 className="text-lg font-semibold text-gray-900 mb-6">Filters</h3>
 
@@ -157,10 +156,9 @@ export default function ProductsSection({
                         </div>
                     </div>
 
-                    {/* Right Content - Products */}
-                    <div className="flex-1">
-                        {/* Products Grid - 3 columns */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    {/* Products Grid */}
+                    <div className="flex-1 w-full">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                             {displayedProducts.map((product) => (
                                 <Link
                                     key={product.id}
@@ -169,7 +167,6 @@ export default function ProductsSection({
                                     onMouseEnter={() => setHoveredProduct(product.id)}
                                     onMouseLeave={() => setHoveredProduct(null)}
                                 >
-                                    {/* Product Image */}
                                     <div className="relative h-64 bg-gray-200 flex items-center justify-center">
                                         <img
                                             src={product.image}
@@ -177,8 +174,6 @@ export default function ProductsSection({
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
-
-                                    {/* Product Info */}
                                     <div className="p-4">
                                         <h3 className="font-medium text-gray-900 mb-2 line-clamp-2">
                                             {product.name}
@@ -186,7 +181,6 @@ export default function ProductsSection({
                                         <p className="text-gray-600 font-medium text-sm">
                                             {product.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
                                         </p>
-
                                     </div>
                                 </Link>
                             ))}
