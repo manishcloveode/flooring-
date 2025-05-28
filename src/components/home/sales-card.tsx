@@ -10,13 +10,13 @@ export default function FurniturePromoBanner() {
                 {/* Left Banner */}
                 <div className="relative w-full md:w-1/2 h-[300px] bg-[#f8f7fb] overflow-hidden flex items-center">
                     <Image
-                        src="/banner1.jpg"
+                        src="/banner1.avif"
                         alt="Sofa"
                         fill
                         className="object-cover object-left md:object-center"
                     />
 
-                    <div className="relative z-10 ml-auto mr-10 max-w-[300px] text-black">
+                    <div className="relative z-10 ml-auto mr-10 max-w-[300px] text-white">
                         <h2 className="text-3xl font-semibold mb-2 leading-tight">Sale Furniture<br />For Summer</h2>
                         <Link href='#' className="text-lg">Great Discounts Here</Link>
                     </div>
@@ -31,7 +31,7 @@ export default function FurniturePromoBanner() {
                         className="object-cover object-right md:object-center"
                     />
 
-                    <div className="relative z-10 ml-10 max-w-[300px] text-black">
+                    <div className="relative z-10 ml-10 max-w-[300px] text-white">
                         <h2 className="text-3xl font-semibold mb-2 leading-tight">Office Chair<br />For Best Offer</h2>
                         <Link href='#' className="text-lg">Great Discounts Here</Link>
                     </div>
