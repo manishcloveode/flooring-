@@ -24,7 +24,7 @@ const TestimonialsSection = () => {
             company: "Premium Estates",
             image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
             rating: 5,
-            text: "I'm so excited that WCD customer service has shown me the VIP Lounge which has all the Luxury brand wallcoverings like Versace, Porsche and etc which I never heard before is all available here!",
+            text: "I'm so excited that  customer service has shown me the VIP Lounge which has all the Luxury brand wallcoverings like Versace, Porsche and etc which I never heard before is all available here!",
             bgColor: "from-green-400 to-green-700"
         },
         {
@@ -34,7 +34,7 @@ const TestimonialsSection = () => {
             company: "Elite Renovations",
             image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
             rating: 5,
-            text: "Dealing with WCD is one of the best purchase experience. They are very helpful and the installation is done by professionals. So happy with the result!",
+            text: "Dealing with  is one of the best purchase experience. They are very helpful and the installation is done by professionals. So happy with the result!",
             bgColor: "from-green-400 to-green-700"
         }
     ];

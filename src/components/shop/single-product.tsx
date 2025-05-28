@@ -151,7 +151,7 @@ export default function SingleProduct({ product }: SingleProductProps) {
                 {/* Product Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
                     {/* Product Images */}
-                    <div className="space-y-4 sticky top-24 self-start">
+                    <div className="space-y-4 lg:sticky lg:top-24 lg:self-start">
                         {/* Main Image */}
                         <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
                             <img
@@ -304,7 +304,7 @@ export default function SingleProduct({ product }: SingleProductProps) {
 
 
                 {relatedProducts.length > 0 && (
-                    <div className="border-t pt-12 mt-12">
+                    <div className="border-t pt-12">
                         <h2 className="text-2xl font-bold text-gray-900 mb-8">Related Products</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                             {relatedProducts.map((product) => (
