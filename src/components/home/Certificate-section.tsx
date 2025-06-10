@@ -62,17 +62,15 @@ const CertificateMarquee = () => {
     ];
 
     return (
-        <div className="bg-gradient-to-r from-green-50 to-blue-50 py-10 overflow-hidden">
+        <div className=" py-10 overflow-hidden">
             <div className="mx-auto ">
                 <h2 className="text-center text-2xl md:text-3xl font-bold mb-8">
-                    <span className="text-green-600">CHOOSE WITH CONFIDENT WITH OUR </span>
+                    <span className="text-orange-600">CHOOSE WITH CONFIDENT WITH OUR </span>
                     <span className="text-gray-800">CERTIFICATE</span>
                 </h2>
 
                 <div className="relative">
-                    {/* Gradient overlays for smooth fade effect - wider for better blending */}
-                    <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-green-50 via-green-50/80 to-transparent z-10 pointer-events-none"></div>
-                    <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-blue-50 via-blue-50/80 to-transparent z-10 pointer-events-none"></div>
+
 
                     {/* Marquee container - seamless infinite scroll */}
                     <div className="flex animate-seamless-marquee gap-12">

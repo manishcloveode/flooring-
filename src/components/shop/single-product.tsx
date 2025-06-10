@@ -35,9 +35,9 @@ export default function SingleProduct({ product }: SingleProductProps) {
 
     const thumbnails = [
         product.image,
-        product.image,
-        product.image,
-        product.image
+        // product.image,
+        // product.image,
+        // product.image
     ];
 
     const renderTabContent = () => {
@@ -306,27 +306,55 @@ export default function SingleProduct({ product }: SingleProductProps) {
                 {relatedProducts.length > 0 && (
                     <div className="border-t pt-12">
                         <h2 className="text-2xl font-bold text-gray-900 mb-8">Related Products</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                             {relatedProducts.map((product) => (
-                                <div
-                                    key={product.id}
-                                    className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-all border border-gray-200 cursor-pointer"
-                                >
-                                    <Link href={`/shop/${product.id}`}>
-                                        <img
-                                            src={product.image}
-                                            alt={product.name}
-                                            className="w-full h-64 object-cover rounded"
-                                        />
-                                        <h3 className="mt-4 font-semibold text-2xl text-gray-900 line-clamp-2">{product.name}</h3>
-                                        <p className="text-base text-gray-600 line-clamp-2">{product.description}</p>
-                                        {/* Optional Price or Discount can go here */}
-                                    </Link>
+                                <div key={product.id} className="group">
+                                    <div
+                                        className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2 overflow-hidden"
+                                    >
+                                        <Link href={`/shop/${product.id}`}>
+                                            {/* Image Container */}
+                                            <div className="relative h-48 overflow-hidden">
+                                                <img
+                                                    src={product.image}
+                                                    alt={product.name}
+                                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                                />
+                                                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                                            </div>
+
+                                            {/* Content */}
+                                            <div className="p-6">
+                                                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300 line-clamp-2">
+                                                    {product.name}
+                                                </h3>
+                                                <p className="text-gray-600 text-base mb-4 line-clamp-2">
+                                                    {product.description}
+                                                </p>
+
+                                                <div className="flex items-center text-orange-600 font-medium group-hover:text-orange-600 transition-colors duration-300">
+                                                    <span className="text-sm font-semibold">View Product</span>
+                                                    <svg
+                                                        className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+
+                                            {/* Decorative border */}
+                                            <div className="h-1 bg-gradient-to-r from-orange-400 to-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                                        </Link>
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </div>
                 )}
+
 
             </div>
         </div>
