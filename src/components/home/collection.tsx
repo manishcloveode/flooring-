@@ -30,39 +30,58 @@ export default function FloorCategories() {
     };
 
     return (
-        <div id="flooring" className="py-16 bg-gray-50">
+        <div id="flooring" className="py-16">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-6">
+                <div className="text-center mb-12">
+                    <h2 className="text-5xl font-semibold text-center text-black mb-3">
+                        Our Flooring Categories
+                    </h2>
+                    <p className="text-gray-600 text-center text-xl max-w-2xl mx-auto my-10 mb-12">
+                        Discover our premium collection of flooring solutions designed to transform your space
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {categories.map((category, index) => (
-                        <div key={index} className="flex justify-center">
+                        <div key={index} className="group">
                             <div
-                                className="group flex flex-col items-center cursor-pointer space-y-2"
+                                className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2 overflow-hidden"
                                 onClick={() => handleCategoryClick(category.slug)}
                             >
-                                {/* Circle Border with Image inside */}
-                                <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36">
-                                    <div className="
-                                        absolute inset-0 rounded-full 
-                                        border-8 border-black 
-                                        group-hover:border-green-700 
-                                        group-hover:border-dotted 
-                                        group-hover:animate-spin 
-                                        transition-all duration-300 
-                                        bg-white">
-                                    </div>
-                                    <div className="relative z-10 w-full h-full rounded-full overflow-hidden">
-                                        <img
-                                            src={category.image}
-                                            alt={category.name}
-                                            className="w-full h-full object-cover"
-                                        />
+                                {/* Image Container */}
+                                <div className="relative h-48 overflow-hidden">
+                                    <img
+                                        src={category.image}
+                                        alt={category.name}
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                    />
+                                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                                </div>
+
+                                {/* Content */}
+                                <div className="p-6">
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300">
+                                        {category.name}
+                                    </h3>
+                                    <p className="text-gray-600 text-base mb-4">
+                                        High-quality {category.name.toLowerCase()} solutions for your home and office spaces.
+                                    </p>
+
+                                    <div className="flex items-center text-orange-600 font-medium group-hover:text-orange-600 transition-colors duration-300">
+                                        <span className="text-sm font-semibold">Explore Options</span>
+                                        <svg
+                                            className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
                                     </div>
                                 </div>
 
-                                {/* Text below the circle */}
-                                <span className="text-gray-800 font-medium text-xs sm:text-sm lg:text-base text-center px-1 sm:px-2 leading-tight">
-                                    {category.name}
-                                </span>
+                                {/* Decorative border */}
+                                <div className="h-1 bg-gradient-to-r from-orange-400 to-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                             </div>
                         </div>
                     ))}

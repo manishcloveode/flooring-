@@ -57,32 +57,39 @@ export default function CategoryPage() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {categoryProducts.map((product) => (
-                        <Link
-                            key={product.id}
-                            href={`/shop/${product.id}`}
-                            className="group relative bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-                        // onMouseEnter={() => setHoveredProduct(product.id)}
-                        // onMouseLeave={() => setHoveredProduct(null)}
-                        >
-                            <div className="relative h-64 bg-gray-200 flex items-center justify-center">
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="p-4">
-                                <h3 className="font-medium text-gray-900 mb-2 line-clamp-2">
-                                    {product.name}
-                                </h3>
-                                <p className="text-gray-600 font-medium text-sm">
-                                    {product.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-                                </p>
-                            </div>
-                        </Link>
+                        <div key={product.id} className="group">
+                            <Link
+                                href={`/shop/${product.id}`}
+                                className="block bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2 overflow-hidden"
+                            >
+                                {/* Image Section */}
+                                <div className="relative h-64 overflow-hidden">
+                                    <img
+                                        src={product.image}
+                                        alt={product.name}
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                    />
+                                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                                </div>
+
+                                {/* Product Info */}
+                                <div className="p-4">
+                                    <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300 line-clamp-2">
+                                        {product.name}
+                                    </h3>
+                                    <p className="text-gray-600 text-sm line-clamp-2">
+                                        {product.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+                                    </p>
+                                </div>
+
+                                {/* Decorative Border */}
+                                <div className="h-1 bg-gradient-to-r from-orange-400 to-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                            </Link>
+                        </div>
                     ))}
                 </div>
             </div>
+
         </div>
     );
 }
