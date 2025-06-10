@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Flooring Store",
+  title: "furnishings ",
   description: "Discover the best flooring solutions for your home",
 };
 
