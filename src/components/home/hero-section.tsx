@@ -28,7 +28,7 @@ export default function HeroBanner() {
         setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+        <div className=" bg-gradient-to-br from-gray-50 to-white">
 
             <div
                 className="relative bg-cover bg-center bg-no-repeat transition-all duration-500"
