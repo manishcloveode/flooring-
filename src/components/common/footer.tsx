@@ -72,10 +72,10 @@ export default function Footer() {
             {/* Footer Bottom */}
             <div className="border-t border-gray-700 mt-10 pt-6 text-gray-400 text-center text-xs">
                 <p>
-                    © 2021, Furns. Made by{" "}
-                    <span className="text-white font-semibold">cloveode</span>.
+                    © {new Date().getFullYear()}, Daiki Media.
                 </p>
             </div>
+
         </footer>
     );
 }
